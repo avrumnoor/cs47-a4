@@ -3,13 +3,19 @@ import { useSpotifyAuth } from "../utils";
 import Pressable from "react-native/Libraries/Components/Pressable/Pressable";
 import SongList from "../components/SongList";
 import { Themes } from "../assets/Themes";
+import PreviewScreen from "./PreviewScreen";
+import DetailsScreen from "./DetailsScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import 'react-native-gesture-handler';
 
-export default function HomeScreen() {
+const Stack = createStackNavigator();
+
+export default function HomeScreen({navigation}) {
   // Pass in true to useSpotifyAuth to use the album ID (in env.js) instead of top tracks
   const { token, tracks, getSpotifyAuth } = useSpotifyAuth();
   // console.log("token", token);
   // console.log("tracks", tracks);
-
   let contentDisplayed = null;
   if (token) {
     contentDisplayed = (
@@ -21,7 +27,7 @@ export default function HomeScreen() {
           />
           <Text style={styles.logoText}> My Top Tracks</Text>
         </View>
-        <SongList tracks={tracks} />
+        <SongList tracks={tracks} navigation={navigation}/>
       </SafeAreaView>
     );
   } else {

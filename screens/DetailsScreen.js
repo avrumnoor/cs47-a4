@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
 
-const PreviewScreen = () => {
+const DetailsScreen = () => {
     return (
         <View style={styles.container}>
-        <Text>PreviewScreen</Text>
+        <Text>DetailsScreen</Text>
         </View>
-    );
-};
+    )
+}
 
-export default PreviewScreen;
+export default DetailsScreen;
 
 const styles = StyleSheet.create({});

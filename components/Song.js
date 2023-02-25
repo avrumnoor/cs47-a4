@@ -1,13 +1,20 @@
-import { Image, StyleSheet, SafeAreaView, FlatList, Text } from "react-native";
+import { Image, StyleSheet, SafeAreaView, FlatList, Text, Pressable  } from "react-native";
 import { Themes } from "../assets/Themes";
 import { millisToMinutesAndSeconds } from "../utils";
-const SongComponent = ({ item, index }) => {
+import PreviewScreen from "../screens/PreviewScreen";
+import { NavigationContainer } from '@react-navigation/native';
+
+const SongComponent = ({ item, index, navigation }) => {
   let url_image = item.imageUrl;
   return (
     <SafeAreaView>
-      <Text style={styles.songText} numberOfLines={1}>
+      <Pressable
+        onPress={() => navigation.navigate('PreviewScreen')}>
+        <Text style={styles.songText}>Preview</Text>
+      </Pressable>
+      {/* <Text style={styles.songText} numberOfLines={1}>
         {index + 1}
-      </Text>
+      </Text> */}
       <Text style={styles.songText} numberOfLines={1}>
         {item.songTitle}
       </Text>

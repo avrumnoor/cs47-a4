@@ -7,8 +7,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import 'react-native-gesture-handler';
 import HomeScreen from "./screens/HomeScreen";
-// import PreviewScreen from "./screens/PreviewScreen";
-// import DetailsScreen from "./screens/DetailsScreen";
+import PreviewScreen from "./screens/PreviewScreen";
+import DetailsScreen from "./screens/DetailsScreen";
 
 const Stack = createStackNavigator();
 
@@ -18,8 +18,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        {/* <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-        <Stack.Screen name="PreviewScreen" component={PreviewScreen} /> */}
+        <Stack.Screen name="PreviewScreen" component={PreviewScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
