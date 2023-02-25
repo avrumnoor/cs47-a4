@@ -6,10 +6,13 @@ import { NavigationContainer } from '@react-navigation/native';
 
 const SongComponent = ({ item, index, navigation }) => {
   let url_image = item.imageUrl;
+  console.log(item.externalUrl)
   return (
     <SafeAreaView>
       <Pressable
-        onPress={() => navigation.navigate('PreviewScreen')}>
+        onPress={() => navigation.navigate('PreviewScreen', {
+          url: item.externalUrl
+          })}>
         <Text style={styles.songText}>Preview</Text>
       </Pressable>
       {/* <Text style={styles.songText} numberOfLines={1}>
